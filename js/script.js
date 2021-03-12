@@ -2,7 +2,7 @@
 function getRnd(min, max) {
    var minRnd = min;
    var maxRnd = max - minRnd + 1;
-   var rnd1 = Math.floor(Math.random() * maxRnd) + minRnd; 
+   var rnd1   = Math.floor(Math.random() * maxRnd) + minRnd;
    return rnd1;
 }
 
@@ -56,7 +56,7 @@ function evenOrOdd(evenOrOdd, number){
    var userChoice = evenOrOdd;
    var userNumber = number;
    var pcNumber   = getRnd(1, 5);
-   var sum = pcNumber + userNumber;
+   var sum        = pcNumber + userNumber;
    
    if (userChoice == "even" && sum % 2 == 0 || userChoice == "odd" && sum % 3 == 0) {
       
