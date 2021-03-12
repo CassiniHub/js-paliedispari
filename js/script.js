@@ -51,14 +51,21 @@ function es1(){
 // Sommiamo i due numeri e dichiariamo chi ha
 // vinto.
 
+var userChoice  = "odd";
+var userNumber  = 5;
+var extSum      = 0;
+var extPcNumber = 0;
+
 function evenOrOdd(evenOrOdd, number){
 
-   var userChoice = evenOrOdd;
-   var userNumber = number;
-   var pcNumber   = getRnd(1, 5);
-   var sum        = pcNumber + userNumber;
-   
-   if (userChoice == "even" && sum % 2 == 0 || userChoice == "odd" && sum % 3 == 0) {
+   var userChoice   = evenOrOdd;
+   var userNumber   = number;
+   var pcNumber     = getRnd(1, 5);
+   var sum          = pcNumber + userNumber;
+       extSum      += sum;
+       extPcNumber += pcNumber;
+
+   if ((userChoice == "even" && sum % 2 == 0) || (userChoice == "odd" && sum % 2 == 1)) {
       
       return true;
    } else {
@@ -67,17 +74,14 @@ function evenOrOdd(evenOrOdd, number){
    }
 }
 
-var userChoice = "even";
-var userNumber = 5;
-
 function es2(){
 
-   if (evenOrOdd(userChoice, userNumber)) {
+   if (evenOrOdd(userChoice, userNumber) == true) {
       
-      console.log("Numero giocatore: " + userNumber, "-",  "Scelta del giocatore: " + userChoice, "-", "Il giocatore ha vinto.");
+      console.log("Numero giocatore: " + userNumber, "-", "Numero PC: " + extPcNumber, "-","Numero totale: " + extSum, "-", "Scelta del giocatore: " + userChoice, "-", "Il giocatore ha vinto.");
    } else {
 
-      console.log("Il pc ha vinto");
+      console.log("Numero giocatore: " + userNumber, "-", "Numero PC: " + extPcNumber, "-","Numero totale: " + extSum, "-", "Scelta del giocatore: " + userChoice, "-", "Il PC ha vinto.",);
    }
 }
 
