@@ -12,12 +12,11 @@ function getRnd(min, max) {
 
 function palindrome(word){
 
-   var userWord         = word;
-   var splitWord        = userWord.split("");
+   var splitWord        = word.split("");
    var reverseArrayWord = splitWord.reverse();
    var reverseWord      = reverseArrayWord.join("");
 
-   if (reverseWord === userWord) {
+   if (reverseWord === word) {
       
       return true;
    } else {
@@ -26,11 +25,9 @@ function palindrome(word){
    }
 };
 
-var word = "radar";
-
 function es1(){
 
-   if (palindrome(word)) {
+   if (palindrome("anno")) {
       
       console.log("La parola è palindroma.");
    } else {
@@ -56,6 +53,7 @@ var userNumber  = 5;
 var extSum      = 0;
 var extPcNumber = 0;
 
+// !Need refactoring
 function evenOrOdd(evenOrOdd, number){
 
    var userChoice   = evenOrOdd;
@@ -91,5 +89,5 @@ function es2(){
 
 // Attiva / disattiva esercizio
 
-// es1();
-es2();
+es1();
+// es2();
