@@ -7,8 +7,7 @@ function getRnd(min, max) {
 }
 
 // ES #1
-//Una funzione per capire se la parola è palindroma.
-
+// Una funzione per capire se la parola è palindroma.
 
 function palindrome(word){
 
@@ -27,7 +26,7 @@ function palindrome(word){
 
 function es1(){
 
-   if (palindrome("anno")) {
+   if (palindrome("radar")) {
       
       console.log("La parola è palindroma.");
    } else {
@@ -48,38 +47,44 @@ function es1(){
 // Sommiamo i due numeri e dichiariamo chi ha
 // vinto.
 
-var userChoice  = "odd";
-var userNumber  = 5;
-var extSum      = 0;
-var extPcNumber = 0;
+function evenOrOdd(userChoice, userNumber){
 
-// !Need refactoring
-function evenOrOdd(evenOrOdd, number){
+   console.log(userNumber);
+   var pcNumber  = getRnd(1, 5);
+   var sum       = pcNumber + userNumber;
+   var sumIsPair = sum % 2 == 0;
+   var sumIsOdd  = sum % 2 == 1;
+   var results   = {
+      winner: false,
+      sum: sum,
+      pcNumber: pcNumber,
+      userChoice: userChoice,
+      userNumber: userNumber
+   };
 
-   var userChoice   = evenOrOdd;
-   var userNumber   = number;
-   var pcNumber     = getRnd(1, 5);
-   var sum          = pcNumber + userNumber;
-       extSum      += sum;
-       extPcNumber += pcNumber;
-
-   if ((userChoice == "even" && sum % 2 == 0) || (userChoice == "odd" && sum % 2 == 1)) {
+   if ((userChoice == "even" && sumIsPair) || (userChoice == "odd" && sumIsOdd)) {
       
-      return true;
+      results.winner = true;
+
+      return results;
    } else {
       
-      return false;
+      return results;
    }
 }
 
+
+
 function es2(){
 
-   if (evenOrOdd(userChoice, userNumber) == true) {
+   var finalResults = Object.assign({}, evenOrOdd("odd", 1));
+   
+   if (finalResults.winner) {
       
-      console.log("Numero giocatore: " + userNumber, "-", "Numero PC: " + extPcNumber, "-","Numero totale: " + extSum, "-", "Scelta del giocatore: " + userChoice, "-", "Il giocatore ha vinto.");
+      console.log("Scelta del gicoatore: " + finalResults.userChoice, "-", "Numero del giocatore: " + finalResults.userNumber, "-", "Numero del pc: " + finalResults.pcNumber, "-", "Somma: " + finalResults.sum, "Il giocatore ha vinto!");
    } else {
 
-      console.log("Numero giocatore: " + userNumber, "-", "Numero PC: " + extPcNumber, "-","Numero totale: " + extSum, "-", "Scelta del giocatore: " + userChoice, "-", "Il PC ha vinto.",);
+      console.log("Scelta del gicoatore: " + finalResults.userChoice, "-", "Numero del giocatore: " + finalResults.userNumber, "-", "Numero del pc: " + finalResults.pcNumber, "-", "Somma: " + finalResults.sum, "Il giocatore ha perso!");
    }
 }
 
@@ -89,5 +94,5 @@ function es2(){
 
 // Attiva / disattiva esercizio
 
-es1();
-// es2();
+// es1();
+es2();
