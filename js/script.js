@@ -49,7 +49,6 @@ function es1(){
 
 function evenOrOdd(userChoice, userNumber){
 
-   console.log(userNumber);
    var pcNumber  = getRnd(1, 5);
    var sum       = pcNumber + userNumber;
    var sumIsPair = sum % 2 == 0;
